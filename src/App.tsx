@@ -134,24 +134,24 @@ export default function App() {
       {page === "home" ? (
         <>
           {/* Hero Section */}
-          <section className="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop pt-32 pb-24 border-b border-surface-variant">
-            <div className="max-w-3xl">
-              <h1 className="font-display text-display text-primary mb-8 tracking-tighter">
+          <section className="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop pt-32 pb-24 border-b border-surface-variant flex flex-col lg:flex-row items-center gap-16">
+            <div className="max-w-xl flex-1 w-full text-center lg:text-left">
+              <h1 className="font-display text-display text-primary mb-8 tracking-tighter mx-auto lg:mx-0">
                 Your memories are not AI training data.
               </h1>
-              <p className="font-body-lg text-body-lg text-secondary mb-12 max-w-xl">
+              <p className="font-body-lg text-body-lg text-secondary mb-12 max-w-xl mx-auto lg:mx-0">
                 Welcome to Frames. A simple, chronological photo feed for you
                 and your friends. Encrypted, private, and noise-free.
               </p>
               {heroSubmitted ? (
-                <div className="bg-surface-container py-4 px-6 border-l-4 border-primary">
+                <div className="bg-surface-container py-4 px-6 border-l-4 border-primary text-left">
                   <p className="font-body-lg text-primary font-medium">
                     Thanks for requesting an invite! We'll be in touch soon.
                   </p>
                 </div>
               ) : (
                 <form
-                  className="flex flex-col sm:flex-row gap-4 max-w-md"
+                  className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto lg:mx-0"
                   onSubmit={handleHeroSubmit}
                 >
                   <input
@@ -170,6 +170,46 @@ export default function App() {
                   </button>
                 </form>
               )}
+            </div>
+
+            <div className="flex-1 w-full flex justify-center lg:justify-end">
+              {/* Phone Mockup */}
+              <div className="relative w-[320px] h-[650px] bg-black rounded-[3rem] border-[12px] border-surface-variant shadow-2xl overflow-hidden flex flex-col scale-90 sm:scale-100 transform origin-top lg:origin-center">
+                {/* App UI */}
+                <div className="flex-1 bg-surface flex flex-col text-on-surface pt-8">
+                  {/* Top Bar */}
+                  <div className="flex justify-between items-center px-4 py-3 border-b border-surface-variant">
+                    <span className="font-headline-sm text-lg font-bold tracking-tight">Frames</span>
+                    <div className="flex gap-4">
+                      <Heart className="w-6 h-6" strokeWidth={1.5} />
+                      <Send className="w-6 h-6" strokeWidth={1.5} />
+                    </div>
+                  </div>
+                  {/* Phone Scroll View */}
+                  <div className="flex-1 overflow-y-auto pb-4 no-scrollbar">
+                    {/* Post 1 */}
+                    <div className="mb-8">
+                      <div className="flex items-center gap-3 px-4 py-3">
+                        <div className="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center">
+                          <ImageIcon className="w-4 h-4 text-secondary" />
+                        </div>
+                        <span className="font-label-caps text-xs">@alex</span>
+                      </div>
+                      <img
+                        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop"
+                        alt="Architecture"
+                        className="w-full h-[400px] object-cover"
+                      />
+                      <div className="flex gap-4 px-4 py-3">
+                        <Heart className="w-7 h-7" strokeWidth={1.5} />
+                        <MessageCircle className="w-7 h-7" strokeWidth={1.5} />
+                      </div>
+                      <div className="px-4 text-sm font-medium mb-1">12 likes</div>
+                      <div className="px-4 text-sm"><span className="font-bold mr-2">@alex</span>Morning light.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
 
