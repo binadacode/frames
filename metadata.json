@@ -1,0 +1,6 @@
+{
+  "name": "Frames Landing Page",
+  "description": "A landing page for a private photo feed app called Frames.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

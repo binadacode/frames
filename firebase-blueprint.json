@@ -1,0 +1,28 @@
+{
+  "entities": {
+    "WaitlistEntry": {
+      "title": "Waitlist Entry",
+      "description": "An email address submitted for the waitlist.",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "The user's email address"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp of submission"
+        }
+      },
+      "required": ["email", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/waitlist/{entryId}": {
+      "schema": {
+        "$ref": "#/entities/WaitlistEntry"
+      },
+      "description": "Stores emails of users who requested an invite."
+    }
+  }
+}
