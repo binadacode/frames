@@ -173,42 +173,16 @@ export default function App() {
             </div>
 
             <div className="flex-1 w-full flex justify-center lg:justify-end">
-              {/* Phone Mockup */}
-              <div className="relative w-[320px] h-[650px] bg-black rounded-[3rem] border-[12px] border-surface-variant shadow-2xl overflow-hidden flex flex-col scale-90 sm:scale-100 transform origin-top lg:origin-center">
-                {/* App UI */}
-                <div className="flex-1 bg-surface flex flex-col text-on-surface pt-8">
-                  {/* Top Bar */}
-                  <div className="flex justify-between items-center px-4 py-3 border-b border-surface-variant">
-                    <span className="font-headline-sm text-lg font-bold tracking-tight">Frames</span>
-                    <div className="flex gap-4">
-                      <Heart className="w-6 h-6" strokeWidth={1.5} />
-                      <Send className="w-6 h-6" strokeWidth={1.5} />
-                    </div>
-                  </div>
-                  {/* Phone Scroll View */}
-                  <div className="flex-1 overflow-y-auto pb-4 no-scrollbar">
-                    {/* Post 1 */}
-                    <div className="mb-8">
-                      <div className="flex items-center gap-3 px-4 py-3">
-                        <div className="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center">
-                          <ImageIcon className="w-4 h-4 text-secondary" />
-                        </div>
-                        <span className="font-label-caps text-xs">@alex</span>
-                      </div>
-                      <img
-                        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop"
-                        alt="Architecture"
-                        className="w-full h-[400px] object-cover"
-                      />
-                      <div className="flex gap-4 px-4 py-3">
-                        <Heart className="w-7 h-7" strokeWidth={1.5} />
-                        <MessageCircle className="w-7 h-7" strokeWidth={1.5} />
-                      </div>
-                      <div className="px-4 text-sm font-medium mb-1">12 likes</div>
-                      <div className="px-4 text-sm"><span className="font-bold mr-2">@alex</span>Morning light.</div>
-                    </div>
-                  </div>
-                </div>
+              {/* Phone Mockup — Prototype Video */}
+              <div className="relative w-[366px] h-[800px] rounded-[3rem] overflow-hidden shadow-2xl scale-90 sm:scale-100 transform origin-top lg:origin-center">
+                <video
+                  src="/frames-phone-only.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </section>
