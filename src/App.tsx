@@ -176,12 +176,12 @@ export default function App() {
               {/* Phone Mockup — Prototype Video */}
               <div className="relative w-[366px] h-[800px] rounded-[3rem] overflow-hidden shadow-2xl scale-90 sm:scale-100 transform origin-top lg:origin-center">
                 <video
-                  src="/frames-phone-only.mp4"
+                  src="/frames-prototype-demo.mp4"
                   autoPlay
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover scale-[1.292]"
                 />
               </div>
             </div>
