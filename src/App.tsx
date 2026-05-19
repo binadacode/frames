@@ -12,6 +12,11 @@ import {
   Heart,
   MessageCircle,
   Send,
+  ArrowLeft,
+  Camera,
+  MessageSquare,
+  MoreVertical,
+  Plus,
 } from "lucide-react";
 import { Terms, Privacy, Manifesto, Source } from "./pages";
 import { db, handleFirestoreError, OperationType } from "./lib/firebase";
@@ -237,55 +242,141 @@ export default function App() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
               {/* Mock UI 1: Feed */}
-              <div className="bg-surface-bright border border-surface-variant aspect-[9/19] max-w-sm mx-auto w-full relative flex flex-col overflow-hidden">
-                {/* Header */}
+              <div className="bg-surface-bright border border-surface-variant aspect-[9/19] max-w-sm mx-auto w-full relative flex flex-col overflow-hidden select-none">
+                {/* TopAppBar */}
                 <div className="h-14 border-b border-surface-variant flex items-center px-4 justify-between bg-surface-container-lowest shrink-0">
-                  <div className="font-headline-md text-headline-md tracking-tighter">
+                  <div className="text-secondary hover:text-primary cursor-pointer transition-colors">
+                    <Camera className="w-5 h-5" strokeWidth={1.5} />
+                  </div>
+                  <div className="font-headline-md text-headline-md tracking-tighter uppercase font-bold text-primary">
                     Frames
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center">
-                    <div className="w-4 h-4 bg-primary rounded-full"></div>
+                  <div className="text-secondary hover:text-primary cursor-pointer transition-colors">
+                    <MessageSquare className="w-5 h-5" strokeWidth={1.5} />
                   </div>
                 </div>
-                {/* Post */}
-                <div className="flex-1 overflow-y-auto bg-surface pb-10">
-                  <div className="mb-8">
-                    <div className="px-4 py-3 flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-primary-fixed"></div>
-                      <div>
-                        <div className="font-label-caps text-label-caps text-primary">
-                          ALEXA_H
+
+                {/* Main Content Area */}
+                <div className="flex-1 overflow-y-auto bg-surface no-scrollbar">
+                  {/* Stories Row */}
+                  <div className="flex items-center overflow-x-auto no-scrollbar py-3 px-3 gap-3 border-b border-surface-variant bg-surface-container-lowest shrink-0">
+                    {/* Your Story */}
+                    <div className="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer">
+                      <div className="w-[50px] h-[50px] rounded-full border border-dashed border-outline flex items-center justify-center p-0.5">
+                        <div className="w-full h-full rounded-full bg-surface-container flex items-center justify-center">
+                          <Plus className="w-4 h-4 text-outline" strokeWidth={2} />
                         </div>
-                        <div className="font-metadata text-metadata text-secondary">
-                          2 hours ago • Encrypted
+                      </div>
+                      <span className="font-metadata text-[10px] text-secondary truncate w-[54px] text-center">Your Story</span>
+                    </div>
+                    {/* Story 2: arch_daily */}
+                    <div className="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer">
+                      <div className="w-[50px] h-[50px] rounded-full border border-primary p-0.5">
+                        <div className="w-full h-full rounded-full bg-surface-container overflow-hidden">
+                          <img alt="arch_daily" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtHNbceKJcpWbW8mOSMbhRK2zOinCPjSuriWNVDjPZL0nCQg1co7O8oAHi_yAgpp9mK8K2wBGQgEUKWUFtAL-67JEIoOiMi9hdF8AJzkODXjwgflzORsmKnQ-XU7MVxpD-LMAqEl1jdPn_gsBva81oQeX8SsPTiCIuV24uLFkqScUBpzSrwvRDKdAdACEkfcEhlc63GULkcEX0rLTl-ptDRtIatnhNZC8MN0uCHwXt9N0UtVihGBE2HNdHWBkzvrPci-yl_EAmKbIb" />
+                        </div>
+                      </div>
+                      <span className="font-metadata text-[10px] text-primary font-semibold truncate w-[54px] text-center">arch_daily</span>
+                    </div>
+                    {/* Story 3: studio_blanc */}
+                    <div className="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer">
+                      <div className="w-[50px] h-[50px] rounded-full border border-primary p-0.5">
+                        <div className="w-full h-full rounded-full bg-surface-container overflow-hidden">
+                          <img alt="studio_blanc" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBefMNNvaFNJ3Pm7OjNV9ynrGL2u1Va4icUBMJbG7B9LTXfzlxgWwrXp8F-0L3qTYTNQJyyg3P4UY7ZcAdms9acbAyqDcidTUqzHQN_oF2KTiq5ZKDtVXqKkwzFCFGn5eOyUodJyPJtaE6mi3Xkb59ZV3zSQQt2VXD_BRDmIoMwcP4C5p-2yWiFwrCsv0E8iKX3pr6kBQBrZ-QIFFZloSMgpSH6PToKEsikLFwuoiIHO7_rz89WuZW_arWgZ-W-AMP_zLs7AvL957Dg" />
+                        </div>
+                      </div>
+                      <span className="font-metadata text-[10px] text-primary font-semibold truncate w-[54px] text-center">studio_blanc</span>
+                    </div>
+                    {/* Story 4: j.k.rowland */}
+                    <div className="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer">
+                      <div className="w-[50px] h-[50px] rounded-full border border-surface-variant p-0.5">
+                        <div className="w-full h-full rounded-full bg-surface-container overflow-hidden">
+                          <img alt="j.k.rowland" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJz0ohU9btV8cfBvsf5rnQZxy-i9CtLJL-VXvfJf-UpI2ltTlneV-8Drj6SaIvhsxuFx55TlkGkQtxgNOWvfUaYRWnF9sT5hje86lu9kpeffqpu9E24_JbSKBZfAC_2Z8lgEkNchnR1Ed936WBeFvPKNiMtyqwhzmlDEvlvOTb7YQANVocJ5lIp6dYoU9mF3y616Oo06L5JuZh3o6Ku7Dm2T0UJIF4Y6Evh6IPtB5cG65fAMuNhtVmyNchLA_Ll6I_yDeeitai1YDj" />
+                        </div>
+                      </div>
+                      <span className="font-metadata text-[10px] text-secondary truncate w-[54px] text-center">j.k.rowland</span>
+                    </div>
+                    {/* Story 5: monocle */}
+                    <div className="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer">
+                      <div className="w-[50px] h-[50px] rounded-full border border-primary p-0.5">
+                        <div className="w-full h-full rounded-full bg-surface-container flex items-center justify-center">
+                          <span className="font-bold text-[9px] tracking-tight">M</span>
+                        </div>
+                      </div>
+                      <span className="font-metadata text-[10px] text-primary font-semibold truncate w-[54px] text-center">monocle</span>
+                    </div>
+                  </div>
+
+                  {/* Feed Item 1 */}
+                  <div className="border-b border-surface-variant pb-6">
+                    <div className="px-4 py-3 flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-surface-container overflow-hidden">
+                          <img alt="arch_daily" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtHNbceKJcpWbW8mOSMbhRK2zOinCPjSuriWNVDjPZL0nCQg1co7O8oAHi_yAgpp9mK8K2wBGQgEUKWUFtAL-67JEIoOiMi9hdF8AJzkODXjwgflzORsmKnQ-XU7MVxpD-LMAqEl1jdPn_gsBva81oQeX8SsPTiCIuV24uLFkqScUBpzSrwvRDKdAdACEkfcEhlc63GULkcEX0rLTl-ptDRtIatnhNZC8MN0uCHwXt9N0UtVihGBE2HNdHWBkzvrPci-yl_EAmKbIb" />
+                        </div>
+                        <div>
+                          <div className="font-label-caps text-label-caps text-primary uppercase font-bold">
+                            arch_daily
+                          </div>
+                          <div className="font-metadata text-metadata text-secondary flex items-center gap-1">
+                            12m ago • <Lock className="w-3 h-3 inline text-[#22C55E]" /> Encrypted
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <div className="aspect-square bg-surface-dim relative group">
+                    <div className="aspect-square bg-surface-dim overflow-hidden relative">
                       <img
-                        src="https://images.unsplash.com/photo-1549468926-d18ce9287a2d?q=80&w=1000&auto=format&fit=crop"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtHNbceKJcpWbW8mOSMbhRK2zOinCPjSuriWNVDjPZL0nCQg1co7O8oAHi_yAgpp9mK8K2wBGQgEUKWUFtAL-67JEIoOiMi9hdF8AJzkODXjwgflzORsmKnQ-XU7MVxpD-LMAqEl1jdPn_gsBva81oQeX8SsPTiCIuV24uLFkqScUBpzSrwvRDKdAdACEkfcEhlc63GULkcEX0rLTl-ptDRtIatnhNZC8MN0uCHwXt9N0UtVihGBE2HNdHWBkzvrPci-yl_EAmKbIb"
                         className="w-full h-full object-cover"
                         alt="Post"
                       />
                     </div>
                     <div className="px-4 py-3">
                       <div className="flex gap-4 mb-3">
-                        <Heart
-                          className="w-6 h-6 text-primary"
-                          strokeWidth={1.5}
-                        />
-                        <MessageCircle
-                          className="w-6 h-6 text-primary"
-                          strokeWidth={1.5}
-                        />
-                        <Send
-                          className="w-6 h-6 text-primary"
-                          strokeWidth={1.5}
-                        />
+                        <Heart className="w-6 h-6 text-primary cursor-pointer hover:opacity-60 transition-opacity" strokeWidth={1.5} />
+                        <MessageCircle className="w-6 h-6 text-primary cursor-pointer hover:opacity-60 transition-opacity" strokeWidth={1.5} />
+                        <Send className="w-6 h-6 text-primary cursor-pointer hover:opacity-60 transition-opacity" strokeWidth={1.5} />
                       </div>
-                      <div className="font-body-sm text-body-sm text-primary mb-1">
-                        <span className="font-bold mr-2">ALEXA_H</span>
-                        Quiet morning routine.
+                      <div className="font-body-sm text-body-sm text-primary">
+                        <span className="font-bold mr-2">arch_daily</span>
+                        Minimalist concrete forms intersecting against the midday sky. A study in shadow and light.
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Feed Item 2 */}
+                  <div className="pb-6">
+                    <div className="px-4 py-3 flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-surface-container overflow-hidden">
+                          <img alt="studio_blanc" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBefMNNvaFNJ3Pm7OjNV9ynrGL2u1Va4icUBMJbG7B9LTXfzlxgWwrXp8F-0L3qTYTNQJyyg3P4UY7ZcAdms9acbAyqDcidTUqzHQN_oF2KTiq5ZKDtVXqKkwzFCFGn5eOyUodJyPJtaE6mi3Xkb59ZV3zSQQt2VXD_BRDmIoMwcP4C5p-2yWiFwrCsv0E8iKX3pr6kBQBrZ-QIFFZloSMgpSH6PToKEsikLFwuoiIHO7_rz89WuZW_arWgZ-W-AMP_zLs7AvL957Dg" />
+                        </div>
+                        <div>
+                          <div className="font-label-caps text-label-caps text-primary uppercase font-bold">
+                            studio_blanc
+                          </div>
+                          <div className="font-metadata text-metadata text-secondary flex items-center gap-1">
+                            2h ago • <Lock className="w-3 h-3 inline text-[#22C55E]" /> Encrypted
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="aspect-square bg-surface-dim overflow-hidden relative">
+                      <img
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBefMNNvaFNJ3Pm7OjNV9ynrGL2u1Va4icUBMJbG7B9LTXfzlxgWwrXp8F-0L3qTYTNQJyyg3P4UY7ZcAdms9acbAyqDcidTUqzHQN_oF2KTiq5ZKDtVXqKkwzFCFGn5eOyUodJyPJtaE6mi3Xkb59ZV3zSQQt2VXD_BRDmIoMwcP4C5p-2yWiFwrCsv0E8iKX3pr6kBQBrZ-QIFFZloSMgpSH6PToKEsikLFwuoiIHO7_rz89WuZW_arWgZ-W-AMP_zLs7AvL957Dg"
+                        className="w-full h-full object-cover"
+                        alt="Post"
+                      />
+                    </div>
+                    <div className="px-4 py-3">
+                      <div className="flex gap-4 mb-3">
+                        <Heart className="w-6 h-6 text-primary cursor-pointer hover:opacity-60 transition-opacity" strokeWidth={1.5} />
+                        <MessageCircle className="w-6 h-6 text-primary cursor-pointer hover:opacity-60 transition-opacity" strokeWidth={1.5} />
+                        <Send className="w-6 h-6 text-primary cursor-pointer hover:opacity-60 transition-opacity" strokeWidth={1.5} />
+                      </div>
+                      <div className="font-body-sm text-body-sm text-primary">
+                        <span className="font-bold mr-2">studio_blanc</span>
+                        Texture and restraint. Fall collection preview.
                       </div>
                     </div>
                   </div>
@@ -293,63 +384,93 @@ export default function App() {
               </div>
 
               {/* Mock UI 2: Encrypted DMs */}
-              <div className="bg-surface-bright border border-surface-variant aspect-[9/19] max-w-sm mx-auto w-full relative flex flex-col overflow-hidden">
+              <div className="bg-surface-bright border border-surface-variant aspect-[9/19] max-w-sm mx-auto w-full relative flex flex-col overflow-hidden select-none">
                 {/* Header */}
-                <div className="h-14 border-b border-surface-variant flex items-center px-4 gap-3 bg-surface-container-lowest shrink-0">
-                  <div className="text-secondary">&lt;</div>
-                  <div className="w-8 h-8 rounded-full bg-primary-fixed"></div>
-                  <div>
-                    <div className="font-label-caps text-label-caps text-primary leading-none">
-                      ALEXA_H
+                <div className="h-14 border-b border-surface-variant flex items-center px-4 justify-between bg-surface-container-lowest shrink-0">
+                  <div className="flex items-center gap-2.5">
+                    <button className="text-secondary hover:text-primary transition-colors">
+                      <ArrowLeft className="w-4 h-4" />
+                    </button>
+                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-[11px] font-bold">
+                      ER
                     </div>
-                    <div className="font-metadata text-metadata text-tertiary-fixed-dim leading-none mt-1 flex items-center gap-1">
-                      <div className="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></div>{" "}
-                      End-to-End Encrypted
+                    <div className="flex flex-col">
+                      <div className="font-label-caps text-[11px] tracking-wider uppercase font-bold text-primary leading-tight">
+                        Elena Rostova
+                      </div>
+                      <div className="font-metadata text-[9px] text-secondary flex items-center gap-1 leading-none mt-0.5">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#22C55E]"></div>
+                        <Lock className="w-2.5 h-2.5 inline" /> End-to-End Encrypted
+                      </div>
                     </div>
                   </div>
+                  <button className="text-secondary hover:text-primary transition-colors">
+                    <MoreVertical className="w-4 h-4" />
+                  </button>
                 </div>
 
-                {/* Messages */}
-                <div className="flex-1 overflow-y-auto bg-surface p-4 flex flex-col gap-4">
-                  <div className="text-center font-metadata text-metadata text-secondary mb-2">
+                {/* Messages List */}
+                <div className="flex-1 overflow-y-auto bg-surface p-4 flex flex-col gap-4 no-scrollbar">
+                  <div className="text-center font-metadata text-[10px] text-secondary my-1">
+                    Yesterday
+                  </div>
+
+                  {/* Message Block 1: Received */}
+                  <div className="flex flex-col gap-1 max-w-[85%] self-start">
+                    <p className="text-[9px] font-metadata text-secondary px-1">10:42 AM</p>
+                    <div className="bg-surface-container border border-surface-variant px-3 py-2 rounded-xl rounded-bl-sm font-body-sm text-xs text-primary leading-relaxed font-semibold">
+                      The gallery walkthrough is scheduled for Thursday. I reviewed the lighting setup, and we need to adjust the spots on the west wall. They're casting too much shadow on the primary piece.
+                    </div>
+                  </div>
+
+                  {/* Message Block 2: Sent */}
+                  <div className="flex flex-col gap-1 max-w-[85%] self-end items-end">
+                    <p className="text-[9px] font-metadata text-secondary px-1 text-right">11:15 AM</p>
+                    <div className="bg-primary text-on-primary px-3 py-2 rounded-xl rounded-br-sm font-body-sm text-xs leading-relaxed">
+                      Understood. I'll have the technicians recalibrate the 4000K spots. We want the piece to feel completely isolated against the white backdrop.
+                    </div>
+                  </div>
+
+                  <div className="text-center font-metadata text-[10px] text-secondary my-1">
                     Today
                   </div>
 
-                  <div className="flex gap-2 w-full">
-                    <div className="w-6 h-6 rounded-full bg-primary-fixed shrink-0 mt-auto"></div>
-                    <div className="bg-surface-container border border-surface-variant px-3 py-2 rounded-xl rounded-bl-sm font-body-sm text-body-sm text-primary max-w-[80%]">
-                      Loved the light in your latest post.
+                  {/* Message Block 3: Received */}
+                  <div className="flex flex-col gap-1 max-w-[85%] self-start">
+                    <p className="text-[9px] font-metadata text-secondary px-1">09:05 AM</p>
+                    <div className="bg-surface-container border border-surface-variant px-3 py-2 rounded-xl rounded-bl-sm font-body-sm text-xs text-primary leading-relaxed font-semibold">
+                      Perfect. The artist is arriving at 2 PM today for final approval. Ensure the space is completely clear of equipment.
                     </div>
                   </div>
 
-                  <div className="flex gap-2 w-full justify-end">
-                    <div className="bg-primary text-on-primary px-3 py-2 rounded-xl rounded-br-sm font-body-sm text-body-sm max-w-[80%]">
-                      Thanks! Woke up early just to catch it.
+                  {/* Message Block 4: Received consecutive */}
+                  <div className="flex flex-col gap-1 max-w-[85%] self-start -mt-2">
+                    <div className="bg-surface-container border border-surface-variant px-3 py-2 rounded-xl rounded-bl-sm font-body-sm text-xs text-primary leading-relaxed font-semibold">
+                      Also, please confirm the security protocols for the entrance are active.
                     </div>
                   </div>
 
-                  <div className="flex gap-2 w-full">
-                    <div className="w-6 h-6 rounded-full bg-primary-fixed shrink-0 mt-auto"></div>
-                    <div className="bg-surface-container border border-surface-variant px-3 py-2 rounded-xl rounded-bl-sm font-body-sm text-body-sm text-primary max-w-[80%]">
-                      We should go shooting sometime next week.
+                  {/* Message Block 5: Sent */}
+                  <div className="flex flex-col gap-1 max-w-[85%] self-end items-end">
+                    <p className="text-[9px] font-metadata text-secondary px-1 text-right">09:12 AM</p>
+                    <div className="bg-primary text-on-primary px-3 py-2 rounded-xl rounded-br-sm font-body-sm text-xs leading-relaxed">
+                      Protocols are live. The west wing is restricted access only. I'll meet you at the main desk at 1:45 PM.
                     </div>
                   </div>
                 </div>
 
-                {/* Input */}
+                {/* Bottom Input Area */}
                 <div className="p-3 border-t border-surface-variant bg-surface-container-lowest shrink-0">
-                  <div className="flex items-center gap-2 border border-surface-variant rounded-full px-3 py-2 bg-surface">
-                    <ImageIcon
-                      className="w-5 h-5 text-secondary"
-                      strokeWidth={1.5}
-                    />
+                  <div className="flex items-center gap-2 border border-surface-variant rounded-full px-3 py-1.5 bg-surface">
+                    <ImageIcon className="w-4 h-4 text-secondary" strokeWidth={1.5} />
                     <input
                       type="text"
-                      placeholder="Message..."
-                      className="flex-1 bg-transparent border-none outline-none font-body-sm text-body-sm"
+                      placeholder="Message Elena..."
+                      className="flex-grow bg-transparent border-none outline-none font-body-sm text-xs placeholder-secondary p-0 focus:ring-0"
+                      disabled
                     />
-                    <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
-                      <div className="w-2 h-2 border-t border-r border-on-primary rotate-45 mr-0.5"></div>
+                    <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity">
+                      <Send className="w-3 h-3 text-on-primary" strokeWidth={2} />
                     </div>
                   </div>
                 </div>
