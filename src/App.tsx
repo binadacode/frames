@@ -94,36 +94,36 @@ export default function App() {
     <div className="bg-surface-container-lowest text-on-surface min-h-screen antialiased selection:bg-primary selection:text-on-primary">
       {/* TopNavBar */}
       <nav className="bg-surface dark:bg-primary-container text-primary dark:text-on-primary sticky top-0 w-full z-50 border-b border-outline-variant dark:border-outline transition-colors duration-200">
-        <div className="flex justify-between items-center w-full max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-gutter">
+        <div className="flex justify-between items-center w-full max-w-[1440px] mx-auto px-6 md:px-12 py-gutter">
           <div
             className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg tracking-tighter text-primary dark:text-surface-container-lowest cursor-pointer"
             onClick={() => setPage("home")}
           >
             Frames
           </div>
-          <div className="hidden md:flex gap-8 items-center">
+          <div className="hidden md:flex gap-14 items-center">
             <button
               onClick={() => navigateToSection(featuresRef)}
-              className="font-label-caps text-label-caps text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary transition-colors duration-200"
+              className="font-label-caps text-sm uppercase tracking-widest text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary transition-colors duration-200"
             >
               Features
             </button>
             <button
               onClick={() => navigateToSection(securityRef)}
-              className="font-label-caps text-label-caps text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary transition-colors duration-200"
+              className="font-label-caps text-sm uppercase tracking-widest text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary transition-colors duration-200"
             >
               Security
             </button>
             <button
               onClick={() => navigateToSection(galleryRef)}
-              className="font-label-caps text-label-caps text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary transition-colors duration-200"
+              className="font-label-caps text-sm uppercase tracking-widest text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary transition-colors duration-200"
             >
               Gallery
             </button>
           </div>
           <button
             onClick={() => navigateToSection(footerRef)}
-            className="bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 hover:bg-surface-tint transition-colors rounded-none scale-100 active:scale-95 transition-transform"
+            className="bg-primary text-on-primary font-label-caps text-sm uppercase tracking-widest px-6 py-3 hover:bg-surface-tint transition-colors rounded-none scale-100 active:scale-95 transition-transform"
           >
             Join Waitlist
           </button>
